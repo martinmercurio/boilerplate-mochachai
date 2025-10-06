@@ -6,10 +6,12 @@ const server = require('../server');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
+
 suite('Functional Tests', function () {
   this.timeout(5000);
 
   suite('Integration tests with chai-http', function () {
+
     // #1
     test('Test GET /hello with no name', function (done) {
       chai
@@ -67,10 +69,13 @@ suite('Functional Tests', function () {
           done();
         });
     });
-});
+
+  }); 
+});   
+
 
 const Browser = require('zombie');
-Browser.site = 'http://0.0.0.0:3000'; // Cambiá por tu URL pública si no corrés local
+Browser.site = 'http://0.0.0.0:3000'; 
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
@@ -115,6 +120,5 @@ suite('Functional Tests with Zombie.js', function () {
       });
     });
 
-  });
-});
+  }); 
 });
