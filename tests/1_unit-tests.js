@@ -37,14 +37,14 @@ suite('Unit Tests', function () {
       assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
       assert.equal(6 * '2', '12');
       assert.notEqual(6 + '2', '12');
-    });
+     });
     // #6
     test('#strictEqual, #notStrictEqual', function () {
       assert.notStrictEqual(6, '6');
       assert.strictEqual(6, 3 * 2);
-      assert.notStrictEqual(6 * '2', 12);
+      assert.strictEqual(6 * '2', 12);
       assert.notStrictEqual([1, 'a', {}], [1, 'a', {}]);
-});
+     });
     });
     // #7
     test('#deepEqual, #notDeepEqual', function () {
@@ -62,17 +62,17 @@ suite('Unit Tests', function () {
   suite('Comparisons', function () {
     // #8
     test('#isAbove, #isAtMost', function () {
-       assert.isAtLeast('world'.length, 5);
-       assert.isAtLeast(2 * Math.random(), 0);
-       assert.isBelow(5 % 2, 2);
-       assert.isBelow(2 / 3, 1);
+      assert.isAtMost('hello'.length, 5);
+      assert.isAbove(1, 0);
+      assert.isAbove(Math.PI, 3);
+      assert.isAtMost(1 - Math.random(), 1);
     });
     // #9
     test('#isBelow, #isAtLeast', function () {
-      assert.fail('world'.length, 5);
-      assert.fail(2 * Math.random(), 0);
-      assert.fail(5 % 2, 2);
-      assert.fail(2 / 3, 1);
+      assert.isAtLeast('world'.length, 5);
+      assert.isAtLeast(2 * Math.random(), 0);
+      assert.isBelow(5 % 2, 2);
+      assert.isBelow(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
@@ -150,11 +150,11 @@ suite('Unit Tests', function () {
     });
     // #17
     test('#typeOf, #notTypeOf', function () {
-       assert.typeOf(myCar, 'object');
-       assert.typeOf(myCar.model, 'string');
-       assert.notTypeOf(airlinePlane.wings, 'string');
-       assert.notTypeOf(airlinePlane.engines, 'array');
-       assert.typeOf(myCar.wheels, 'number');
+      assert.typeOf(myCar, 'object');
+      assert.typeOf(myCar.model, 'string');
+      assert.notTypeOf(airlinePlane.wings, 'string');   
+      assert.typeOf(airlinePlane.engines, 'array');     
+      assert.typeOf(myCar.wheels, 'number');
     });
     // #18
     test('#instanceOf, #notInstanceOf', function () {
